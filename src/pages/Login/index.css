@@ -1,0 +1,61 @@
+#root{
+  height: 100%;
+  background-color: #2d3a4b;
+
+}
+.login-container {
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.login-container .login-form{
+  position: relative;
+  width: 520px;
+  max-width: 100%;
+  padding: 160px 35px 0;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.title-container{
+  position: relative;
+}
+.login-container .title-container .title{
+  font-size: 26px;
+  color: #eee;
+  margin: 0px auto 40px auto;
+  text-align: center;
+  font-weight: bold;
+}
+.login-container .el-form-item {
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.1);
+  border-radius: 5px;
+  color: #454545;
+}
+
+.el-form-item {
+  margin-bottom: 22px;
+}
+.ant-form{
+  width: 280px;
+  
+}
+.ant-input-affix-wrapper{
+  height: 47px;
+}
+.ant-form-item-control-input .ant-input-affix-wrapper .ant-input-prefix{
+  margin-right: 19px;
+  margin-left: 12px;  
+}
+#components-form-demo-normal-login .login-form {
+  max-width: 300px;
+}
+#components-form-demo-normal-login .login-form-forgot {
+  float: right;
+}
+#components-form-demo-normal-login .ant-col-rtl .login-form-forgot {
+  float: left;
+}
+.ant-form-item-control-input-content .login-form-button {
+  width: 100%;
+}
