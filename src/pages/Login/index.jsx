@@ -53,28 +53,30 @@ export default class index extends Component {
           </div>
           <Form.Item
             name="username el-form-item is-success is-required"
-            rules={[
-              {
-                required: true,
-                message: 'Please input your Username!',
-              },
-            ]}
+            // rules={[
+            //   {
+            //     required: true,
+            //     message: 'Please input your Username!',
+            //   },
+            // ]}
           >
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
               placeholder="账号"
+              defaultValue={username}
               value={username}
               onChange={this.getUsername}
             />
           </Form.Item>
           <Form.Item
             name="password"
-            rules={[{ required: true, message: 'Please input your Password!' }]}
+            // rules={[{ required: true, message: 'Please input your Password!' }]}
           >
             <Input.Password
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
               placeholder="密码"
+              defaultValue={password}
               value={password}
               onChange={this.getPassword}
             />
