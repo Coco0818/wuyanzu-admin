@@ -27,6 +27,7 @@ export default class index extends Component {
     reqLogin(username, password)
       .then((res) => {
         console.log(res)
+        localStorage.setItem('USERNAME', username)
         this.props.history.push('/')
       })
       .catch((err) => {

@@ -6,14 +6,14 @@ import {
   GlobalOutlined,
 } from '@ant-design/icons'
 
-import { connect } from 'react-redux'
-import { changeShowSilder } from '../../store/actions/showSlider'
+// import { connect } from 'react-redux'
+// import { changeShowSilder } from '../../store/actions/showSlider'
 
 import headPic from '@assets/images/pic.jpg'
 
 const { Header } = Layout
 
-class HeaderCustom extends Component {
+export default class HeaderCustom extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -119,11 +119,11 @@ class HeaderCustom extends Component {
   }
 }
 
-export default connect(
-  (state) => {
-    // collapsed: state.collapsed
-  },
-  {
-    changeShowSilder,
-  }
-)(HeaderCustom)
+// export default connect(
+//   (state) => {
+//     // collapsed: state.collapsed
+//   },
+//   {
+//     changeShowSilder,
+//   }
+// )(HeaderCustom)

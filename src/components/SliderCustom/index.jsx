@@ -25,40 +25,35 @@ export default class SliderCustom extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.onCollapse(nextProps.collapsed)
-  }
-
-  onCollapse = (collapsed) => {
-    this.setState({
-      collapsed,
-    })
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   this.onCollapse(nextProps.collapsed)
+  // }
 
   render() {
     const { collapsed } = this.state
+
     return (
       <Sider collapsed={collapsed}>
         <div className="logo">
           <img className="head-logo" src={logoUrl} alt="拉钩后台管理系统" />
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+        <Menu theme="dark" mode="inline">
           <Menu.Item key="1" icon={<HomeOutlined />}>
-            首页
+            <Link to="/admin">首页</Link>
           </Menu.Item>
           <SubMenu key="sub1" icon={<TeamOutlined />} title="权限管理">
             <Menu.Item key="6">用户管理</Menu.Item>
             <Menu.Item key="8">角色管理</Menu.Item>
             <Menu.Item key="12">菜单管理</Menu.Item>
           </SubMenu>
-          <Menu.Item key="4" icon={<HomeOutlined />}>
-            <Link to="positions">公司管理</Link>
+          <Menu.Item key="/admin/positions" icon={<HomeOutlined />}>
+            <Link to="/admin/positions">公司管理</Link>
           </Menu.Item>
           <Menu.Item key="3" icon={<CoffeeOutlined />}>
             职位管理
           </Menu.Item>
-          <Menu.Item key="5" icon={<UserOutlined />}>
-            个人中心
+          <Menu.Item key="/admin/centerPerson" icon={<UserOutlined />}>
+            <Link to="/admin/centerPerson">个人中心</Link>
           </Menu.Item>
         </Menu>
       </Sider>

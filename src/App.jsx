@@ -17,22 +17,22 @@ function App({ language }) {
   const locale = language === 'en' ? enUS : zhCN // antd的方案
   return (
     <>
-      <Router history={history}>
-        <ConfigProvider locale={locale}>
-          <IntlProvider
-            locale={language} // 当前语言环境
-            messages={messages} // 加载使用的语言包
-          >
+      <ConfigProvider locale={locale}>
+        <IntlProvider
+          locale={language} // 当前语言环境
+          messages={messages} // 加载使用的语言包
+        >
+          <Router history={history}>
             <Suspense fallback={<div>loading...</div>}>
               <Switch>
                 {routes.map((route) => {
-                  return <Route key={route.path} {...route} exact></Route>
+                  return <Route key={route.path} {...route}></Route>
                 })}
               </Switch>
             </Suspense>
-          </IntlProvider>
-        </ConfigProvider>
-      </Router>
+          </Router>
+        </IntlProvider>
+      </ConfigProvider>
     </>
   )
 }

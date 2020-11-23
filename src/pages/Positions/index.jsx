@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-export default class index extends Component {
+export default class Positions extends Component {
   render() {
-    return <div>公司页面</div>
+    return <div>职位页面</div>
   }
 }
