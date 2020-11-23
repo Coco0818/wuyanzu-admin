@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { Layout, Breadcrumb, Menu, Button, Dropdown } from 'antd'
 
 import { Route, Switch } from 'react-router-dom'
+import { changeLanguageSync } from '../../store/actions/language'
+
+import { connect } from 'react-redux'
 
 import {
   UserOutlined,
@@ -37,16 +40,21 @@ import { Content } from 'antd/lib/layout/layout'
 
 const { Sider, Header } = Layout
 
-export default class App extends Component {
+class Admin extends Component {
   state = {
     collapsed: false,
     username: '',
+    permissions: false, //权限
   }
 
   componentDidMount() {
     const username = localStorage.getItem('USERNAME')
+    const quanxian = localStorage.getItem('PERMISSIONS')
+    const permissions = quanxian.split(',').length
+
     this.setState({
       username,
+      permissions,
     })
   }
 
@@ -75,10 +83,6 @@ export default class App extends Component {
     const menu = (
       <Menu onClick={this.logOut}>
         <Menu.Item key="1">
-          <UserOutlined />
-          个人中心
-        </Menu.Item>
-        <Menu.Item key="2">
           <LogoutOutlined />
           退出登录
         </Menu.Item>
@@ -111,7 +115,7 @@ export default class App extends Component {
       </Menu>
     )
 
-    const { collapsed, username } = this.state
+    const { collapsed, username, permissions } = this.state
 
     return (
       <Layout style={{ minHeight: '100vh' }}>
@@ -119,7 +123,38 @@ export default class App extends Component {
           <div className="logo">
             <img className="head-logo" src={logoUrl} alt="拉钩后台管理系统" />
           </div>
-          <Menu theme="dark" mode="inline">
+          {permissions === 3 ? (
+            <Menu theme="dark" mode="inline" defaultSelectedKeys={['/admin']}>
+              <Menu.Item key="/admin" icon={<HomeOutlined />}>
+                <Link to="/admin">首页</Link>
+              </Menu.Item>
+              <Menu.Item key="/admin/permissions" icon={<HomeOutlined />}>
+                <Link to="/admin/permissions">权限管理</Link>
+              </Menu.Item>
+              <Menu.Item key="/admin/companys" icon={<HomeOutlined />}>
+                <Link to="/admin/companys">公司管理</Link>
+              </Menu.Item>
+              <Menu.Item key="/admin/positions" icon={<CoffeeOutlined />}>
+                <Link to="/admin/positions">职位管理</Link>
+              </Menu.Item>
+              <Menu.Item key="/admin/centerPerson" icon={<UserOutlined />}>
+                <Link to="/admin/centerPerson">个人中心</Link>
+              </Menu.Item>
+            </Menu>
+          ) : (
+            <Menu theme="dark" mode="inline" defaultSelectedKeys={['/admin']}>
+              <Menu.Item key="/admin" icon={<HomeOutlined />}>
+                <Link to="/admin">首页</Link>
+              </Menu.Item>
+              <Menu.Item key="/admin/positions" icon={<HomeOutlined />}>
+                <Link to="/admin/companys">公司管理</Link>
+              </Menu.Item>
+              <Menu.Item key="3" icon={<CoffeeOutlined />}>
+                <Link to="/admin/positions">职位管理</Link>
+              </Menu.Item>
+            </Menu>
+          )}
+          {/* <Menu theme="dark" mode="inline">
             <Menu.Item key="/admin" icon={<HomeOutlined />}>
               <Link to="/admin">首页</Link>
             </Menu.Item>
@@ -135,7 +170,7 @@ export default class App extends Component {
             <Menu.Item key="/admin/centerPerson" icon={<UserOutlined />}>
               <Link to="/admin/centerPerson">个人中心</Link>
             </Menu.Item>
-          </Menu>
+          </Menu> */}
         </Sider>
         <Layout className="site-layout">
           <Header className="site-layout-background">
@@ -159,11 +194,13 @@ export default class App extends Component {
               </span>
             </div>
           </Header>
-          )
+
           <Content>
             <div className="layout-nav">
               <Breadcrumb>
-                <Breadcrumb.Item>首页</Breadcrumb.Item>
+                <Breadcrumb.Item>
+                  <Link to="/admin">首页</Link>
+                </Breadcrumb.Item>
                 {/* 一级菜单 */}
               </Breadcrumb>
             </div>
@@ -192,3 +229,6 @@ export default class App extends Component {
     )
   }
 }
+export default connect(null, {
+  changeLanguageSync,
+})(Admin)

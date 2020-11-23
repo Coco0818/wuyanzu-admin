@@ -7,6 +7,7 @@ import { lazy } from 'react'
 const Login = lazy(() => import('@pages/Login'))
 const Admin = lazy(() => import('@pages/Admin'))
 const Home = lazy(() => import('@pages/Home'))
+
 // const CenterPerson = lazy(() => import('@pages/CenterPerson'))
 
 // const Positions = lazy(() => import('@pages/Positions'))

@@ -1,7 +1,41 @@
 import React, { Component } from 'react'
 
+import { Table } from 'antd'
+
 export default class index extends Component {
   render() {
-    return <div>权限管理</div>
+    const dataSource = [
+      {
+        key: '1',
+        name: '胡彦斌',
+        age: 32,
+        address: '西湖区湖底公园1号',
+      },
+      {
+        key: '2',
+        name: '胡彦祖',
+        age: 42,
+        address: '西湖区湖底公园1号',
+      },
+    ]
+
+    const columns = [
+      {
+        title: '用户名',
+        dataIndex: 'name',
+        key: 'name',
+      },
+      {
+        title: '身份',
+        dataIndex: 'age',
+        key: 'age',
+      },
+      {
+        title: '住址',
+        dataIndex: 'address',
+        key: 'address',
+      },
+    ]
+    return <Table dataSource={dataSource} columns={columns} />
   }
 }

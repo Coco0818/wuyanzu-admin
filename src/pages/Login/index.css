@@ -4,20 +4,19 @@
 
 }
 .login-container {
+  height: 100%;
   min-height: 100%;
   width: 100%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .login-container .login-form{
-  position: relative;
   width: 520px;
-  max-width: 100%;
-  padding: 160px 35px 0;
-  margin: 0 auto;
-  overflow: hidden;
 }
 .title-container{
-  position: relative;
+  /* position: relative; */
 }
 .login-container .title-container .title{
   font-size: 26px;
