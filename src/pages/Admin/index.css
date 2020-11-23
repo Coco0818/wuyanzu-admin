@@ -1,0 +1,69 @@
+#components-layout-demo-custom-trigger .trigger {
+  font-size: 28px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#components-layout-demo-custom-trigger .trigger:hover {
+  color: #1890ff;
+}
+
+#components-layout-demo-custom-trigger .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 16px;
+
+}
+.logo{
+display: flex;
+justify-content: center;
+}
+.logo .head-logo{
+  width: 70px;
+  height: 50px;
+}
+
+.site-layout{
+  /* display: flex;
+  justify-items: center; */
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+  padding: 0 20px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-layout .site-layout-background .trigger{
+  font-size: 24px;
+}
+
+.right-header .head-pic{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+
+.username{
+  margin-right: 30px;
+}
+
+.layout-header-lang{
+  margin-right: 30px;
+}
+
+.layout-nav {
+  padding: 10px 20px;
+  background-color: #fff;
+}
+
+.layout-nav h3 {
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 0;
+}

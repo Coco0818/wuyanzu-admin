@@ -1,18 +1,41 @@
 import React, { Component } from 'react'
 import { Form, Input, Button } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
+import { reqLogin } from '@api/users'
 
 import './index.css'
-import { Link, Route } from 'react-router-dom'
-// 跳转到首页
-import Home from '@pages/Home'
 
 export default class index extends Component {
-  render() {
-    const onFinish = (values) => {
-      console.log('Received values of form: ', values)
-    }
+  state = {
+    username: 'admin',
+    password: 'admin',
+  }
 
+  getUsername = (e) => {
+    this.setState({
+      username: e.target.value,
+    })
+  }
+  getPassword = (e) => {
+    this.setState({
+      password: e.target.value,
+    })
+  }
+
+  login = () => {
+    const { username, password } = this.state
+    reqLogin(username, password)
+      .then((res) => {
+        console.log(res)
+        this.props.history.push('/')
+      })
+      .catch((err) => {
+        alert('用户名或密码错误')
+      })
+  }
+
+  render() {
+    const { username, password } = this.state
     return (
       <div className="login-container">
         <Form
@@ -21,7 +44,7 @@ export default class index extends Component {
           initialValues={{
             remember: true,
           }}
-          onFinish={onFinish}
+          onFinish={this.login}
         >
           <div className="title-container">
             <h3 data-v-37dfd6fc="" className="title">
@@ -40,6 +63,8 @@ export default class index extends Component {
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
               placeholder="账号"
+              value={username}
+              onChange={this.getUsername}
             />
           </Form.Item>
           <Form.Item
@@ -50,6 +75,8 @@ export default class index extends Component {
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
               placeholder="密码"
+              value={password}
+              onChange={this.getPassword}
             />
           </Form.Item>
 
@@ -59,13 +86,10 @@ export default class index extends Component {
               htmlType="submit"
               className="login-form-button"
             >
-              <Link to="/home">登录</Link>
-              {/* <a href="##">登录</a> */}
+              登录
             </Button>
           </Form.Item>
         </Form>
-        {/* 管理系统页面 */}
-        <Route path="/home" component={Home}></Route>
       </div>
     )
   }

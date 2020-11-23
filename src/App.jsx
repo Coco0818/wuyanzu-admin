@@ -1,7 +1,5 @@
 import React, { Suspense } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-
-import routes from './config/routes'
 import { createBrowserHistory } from 'history'
 import { ConfigProvider } from 'antd'
 import enUS from 'antd/es/locale/en_US'
@@ -9,6 +7,8 @@ import zhCN from 'antd/es/locale/zh_CN'
 import { connect } from 'react-redux'
 import { IntlProvider } from 'react-intl'
 import { zh, en } from './locales'
+
+import routes from '@config/routes'
 
 const history = createBrowserHistory()
 
@@ -26,7 +26,7 @@ function App({ language }) {
             <Suspense fallback={<div>loading...</div>}>
               <Switch>
                 {routes.map((route) => {
-                  return <Route {...route} key={route.path} />
+                  return <Route key={route.path} {...route} exact></Route>
                 })}
               </Switch>
             </Suspense>
