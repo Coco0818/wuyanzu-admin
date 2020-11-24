@@ -1,0 +1,35 @@
+.Add-btn{
+  margin: 27px 27px 20px 27px;
+  height: 36px;
+  border-radius: 6px !important;
+}
+.Add-table{
+  margin: 0 20px 20px 20px;
+  border: 1px solid #f0f0f0;
+}
+.tagBtn{
+  margin-right: 14px !important;
+}
+.one-btn{
+  background-color: #e6a23c !important;
+  float: left;
+}
+.one-btn span,.two-btn span{
+  color: white;
+}
+.two-btn{
+  background-color: #f56c6c !important;
+  float: left;
+
+}
+button:focus{
+  outline: none;
+}
+
+.ant-table-cell:nth-child(4){
+  width: 550px;
+}
+.ant-input{
+  width: 380px !important;
+  float: right;
+}

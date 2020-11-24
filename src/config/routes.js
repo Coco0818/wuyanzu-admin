@@ -1,6 +1,5 @@
 /**
- * 路由配置
- *
+  路由配置
  */
 import { lazy } from 'react'
 

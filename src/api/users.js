@@ -14,6 +14,22 @@ export const reqLogin = (name, password) => {
     },
   })
 }
+export const reqCompany = () => {
+  return request({
+    method: 'GET',
+    url: '/api/companys',
+  })
+}
+
+export const removeCompany = (id) => {
+  return request({
+    method: 'POST',
+    url: API + '/removeCompany',
+    data: {
+      id,
+    },
+  })
+}
 
 // 注册
 
@@ -25,5 +41,19 @@ export const reqRegister = (name, password) => {
       name,
       password,
     },
+  })
+}
+export const addCompany = (data) => {
+  return request({
+    method: 'POST',
+    url: API + '/addCompany',
+    data,
+  })
+}
+export const updateCompany = (data) => {
+  return request({
+    method: 'POST',
+    url: API + '/updateCompany',
+    data,
   })
 }
