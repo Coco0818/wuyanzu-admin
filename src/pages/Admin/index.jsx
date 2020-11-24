@@ -198,11 +198,11 @@ class Admin extends Component {
 
           <Content>
             <div className="layout-nav">
-              <Breadcrumb>
+              {/* <Breadcrumb>
                 <Breadcrumb.Item>
                   <Link to="/admin">首页</Link>
                 </Breadcrumb.Item>
-              </Breadcrumb>
+              </Breadcrumb> */}
             </div>
             {/* 内容区 */}
             <div className="layout-content">

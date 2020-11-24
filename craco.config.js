@@ -12,4 +12,5 @@ module.exports = {
       '@config': path.resolve(__dirname, './src/config'),
     },
   },
+  
 }
