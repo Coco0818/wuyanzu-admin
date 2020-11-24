@@ -1,15 +1,35 @@
 // 封装API模板, 格式
 import request from '@utils/request'
 
-const API = '/api'
+const API = '/bs'
 
-export const reqLogin = (phone, password) => {
+export const reqCompany = () => {
+  return request({
+    method: 'GET',
+    url: "/api" + '/companys'
+  })
+}
+
+export const removeCompany = (id) => {
   return request({
     method: 'POST',
-    url: API + '/login',
+    url: API + '/removeCompany',
     data: {
-      phone,
-      password,
-    },
+      id
+    }
+  })
+}
+export const addCompany = (data) => {
+  return request({
+    method: 'POST',
+    url: API + '/addCompany',
+    data
+  })
+}
+export const updateCompany = (data) => {
+  return request({
+    method: "POST",
+    url: API + "/updateCompany",
+    data
   })
 }
