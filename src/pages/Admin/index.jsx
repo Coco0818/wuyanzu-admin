@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Layout, Breadcrumb, Menu, Button, Dropdown } from 'antd'
+import { Layout, Breadcrumb, Menu, Button, Dropdown, message } from 'antd'
 
 import { Route, Switch } from 'react-router-dom'
 import { changeLanguageSync } from '../../store/actions/language'
@@ -71,8 +71,9 @@ class Admin extends Component {
       collapsed: !this.state.collapsed,
     })
   }
-
+  // 退出成功
   logOut = () => {
+    message.success('退出成功！')
     localStorage.removeItem('USERNAME')
     this.props.history.push('/login')
   }
@@ -201,7 +202,6 @@ class Admin extends Component {
                 <Breadcrumb.Item>
                   <Link to="/admin">首页</Link>
                 </Breadcrumb.Item>
-                {/* 一级菜单 */}
               </Breadcrumb>
             </div>
             {/* 内容区 */}
