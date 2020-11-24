@@ -1,23 +1,24 @@
-import React, { Suspense } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import React, { Suspense } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import routes from './config/routes'
-import { createBrowserHistory } from 'history'
-import { ConfigProvider } from 'antd'
-import enUS from 'antd/es/locale/en_US'
-import zhCN from 'antd/es/locale/zh_CN'
-import { connect } from 'react-redux'
-import { IntlProvider } from 'react-intl'
-import { zh, en } from './locales'
+import routes from "./config/routes";
+import { createBrowserHistory } from "history";
+import { ConfigProvider } from "antd";
+import enUS from "antd/es/locale/en_US";
+import zhCN from "antd/es/locale/zh_CN";
+import { connect } from "react-redux";
+import { IntlProvider } from "react-intl";
+import { zh, en } from "./locales";
 
-const history = createBrowserHistory()
+import Positions from "./pages/Positions";
+const history = createBrowserHistory();
 
 function App({ language }) {
-  const messages = language === 'en' ? en : zh // 自定义的方案
-  const locale = language === 'en' ? enUS : zhCN // antd的方案
+  const messages = language === "en" ? en : zh; // 自定义的方案
+  const locale = language === "en" ? enUS : zhCN; // antd的方案
   return (
     <>
-      <Router history={history}>
+      {/* <Router history={history}>
         <ConfigProvider locale={locale}>
           <IntlProvider
             locale={language} // 当前语言环境
@@ -32,9 +33,10 @@ function App({ language }) {
             </Suspense>
           </IntlProvider>
         </ConfigProvider>
-      </Router>
+      </Router> */}
+      <Positions />
     </>
-  )
+  );
 }
 
-export default connect((state) => ({ language: state.language }))(App)
+export default connect((state) => ({ language: state.language }))(App);

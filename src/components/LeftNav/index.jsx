@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Layout, Menu, Breadcrumb } from 'antd'
+import React, { Component } from "react";
+import { Layout, Menu, Breadcrumb } from "antd";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -8,30 +8,34 @@ import {
   UploadOutlined,
   TeamOutlined,
   HomeOutlined,
-} from '@ant-design/icons'
+} from "@ant-design/icons";
 
-import './index.css'
+import "./index.css";
 
-const { Header, Sider } = Layout
-const { SubMenu } = Menu
+const { Header, Sider } = Layout;
+const { SubMenu } = Menu;
 
 export default class App extends Component {
   state = {
     collapsed: false,
-  }
+  };
 
   onCollapse = (collapsed) => {
-    console.log(collapsed)
-    this.setState({ collapsed: !this.state.collapsed })
-  }
-
+    console.log(collapsed);
+    this.setState({ collapsed: !this.state.collapsed });
+  };
+  xxx = () => {
+    this.props.history.push("/positions");
+  };
   render() {
-    const { collapsed } = this.state
+    const { collapsed } = this.state;
+    const { xxx } = this;
+
     return (
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout style={{ minHeight: "100vh" }}>
         <Sider collapsed={collapsed}>
           <div className="logo"> </div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
             <Menu.Item key="1" icon={<UserOutlined />}>
               首页
             </Menu.Item>
@@ -43,7 +47,7 @@ export default class App extends Component {
             <Menu.Item key="4" icon={<HomeOutlined />}>
               公司管理
             </Menu.Item>
-            <Menu.Item key="3" icon={<CoffeeOutlined />}>
+            <Menu.Item key="3" icon={<CoffeeOutlined />} onClick={xxx}>
               职位管理
             </Menu.Item>
             <Menu.Item key="5" icon={<UploadOutlined />}>
@@ -56,7 +60,7 @@ export default class App extends Component {
             {React.createElement(
               this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
               {
-                className: 'trigger',
+                className: "trigger",
                 onClick: this.onCollapse,
               }
             )}
@@ -66,6 +70,6 @@ export default class App extends Component {
           </Header>
         </Layout>
       </Layout>
-    )
+    );
   }
 }
